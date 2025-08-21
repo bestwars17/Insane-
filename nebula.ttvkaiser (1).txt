@@ -304,6 +304,32 @@ autoHandstandToggle:OnChanged(function(state)
     end
 end)
 
+-- Speed Grind (No Rebirth)
+local speedGrindToggle = Tabs.Rebirth:CreateToggle("SpeedGrind", {Title = "Fast Grind (No Rebirth)", Default = false})
+speedGrindToggle:OnChanged(function(State)
+	if State then
+		for i = 1, 12 do
+			task.spawn(function()
+				while speedGrindToggle.Value do
+					game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+					task.wait(0.083)
+				end
+			end)
+		end
+	end
+end)
+
+-- Hide All Frames
+local hideFramesToggle = Tabs.Rebirth:CreateToggle("HideAllFrames", {Title = "Hide All Frames", Default = false})
+hideFramesToggle:OnChanged(function(State)
+	local rSto = game:GetService("ReplicatedStorage")
+	for _, obj in pairs(rSto:GetChildren()) do
+		if obj:IsA("Instance") and obj.Name:match("Frame$") then
+			obj.Visible = not State
+		end
+	end
+end)
+
 Tabs.Main:AddSection("Auto Fast Farm")
 
 local Toggle = Tabs.Main:CreateToggle("AutoPunchWithAnim", {
@@ -570,16 +596,6 @@ autoSize2Toggle:OnChanged(function(State)
 	end
 end)
 
--- Hide All Frames
-local hideFramesToggle = Tabs.Rebirth:CreateToggle("HideAllFrames", {Title = "Hide All Frames", Default = false})
-hideFramesToggle:OnChanged(function(State)
-	local rSto = game:GetService("ReplicatedStorage")
-	for _, obj in pairs(rSto:GetChildren()) do
-		if obj:IsA("Instance") and obj.Name:match("Frame$") then
-			obj.Visible = not State
-		end
-	end
-end)
 
 -- Label
 Tabs.Rebirth:AddSection("OP Stuff")
@@ -589,21 +605,6 @@ local fastRebirthsToggle = Tabs.Rebirth:CreateToggle("FastRebirths", {Title = "F
 fastRebirthsToggle:OnChanged(function(State)
 	if State then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/0o0o0o0o0o0o0o0o0o0o0o0o/0o0o0o0o/refs/heads/main/Kk"))()
-	end
-end)
-
--- Speed Grind (No Rebirth)
-local speedGrindToggle = Tabs.Rebirth:CreateToggle("SpeedGrind", {Title = "Fast Grind (No Rebirth)", Default = false})
-speedGrindToggle:OnChanged(function(State)
-	if State then
-		for i = 1, 12 do
-			task.spawn(function()
-				while speedGrindToggle.Value do
-					game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
-					task.wait(0.083)
-				end
-			end)
-		end
 	end
 end)
 
@@ -1140,4 +1141,5 @@ Library:Notify{
 
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config
 -- which has been marked to be one that auto loads!
+
 SaveManager:LoadAutoloadConfig()
