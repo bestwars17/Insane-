@@ -204,7 +204,7 @@ Toggle:OnChanged(function(State)
         task.spawn(function()
             while Toggle.Value do
                 game:GetService("Players").LocalPlayer:WaitForChild("muscleEvent"):FireServer("rep")
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -253,7 +253,7 @@ autoWeightToggle:OnChanged(function(state)
                 if tool and tool:IsA("Tool") then
                     tool:Activate()
                 end
-                task.wait(0.2)
+                task.wait(0.005)
             end
         end)
     end
@@ -268,7 +268,7 @@ autoPushupToggle:OnChanged(function(state)
                 if tool and tool:IsA("Tool") then
                     tool:Activate()
                 end
-                task.wait(0.2)
+                task.wait(0.005)
             end
         end)
     end
@@ -283,7 +283,7 @@ autoSitupToggle:OnChanged(function(state)
                 if tool and tool:IsA("Tool") then
                     tool:Activate()
                 end
-                task.wait(0.2)
+                task.wait(0.005)
             end
         end)
     end
@@ -298,7 +298,7 @@ autoHandstandToggle:OnChanged(function(state)
                 if tool and tool:IsA("Tool") then
                     tool:Activate()
                 end
-                task.wait(0.2)
+                task.wait(0.005)
             end
         end)
     end
@@ -308,11 +308,11 @@ end)
 local speedGrindToggle = Tabs.Rebirth:CreateToggle("SpeedGrind", {Title = "Fast Grind (No Rebirth)", Default = false})
 speedGrindToggle:OnChanged(function(State)
 	if State then
-		for i = 1, 12 do
+		for i = 1, 23 do
 			task.spawn(function()
 				while speedGrindToggle.Value do
 					game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
-					task.wait(0.083)
+					task.wait(0.005)
 				end
 			end)
 		end
@@ -455,7 +455,7 @@ fastHandstandToggle:OnChanged(function(state)
         if tool then
             if tool.Parent ~= char then
                 tool.Parent = char
-                task.wait(0.1)
+                task.wait(0.005)
             end
 
             local handstandTime = tool:FindFirstChild("handstandTime")
@@ -479,7 +479,7 @@ jungleBenchToggle:OnChanged(function(State)
             while jungleBenchToggle.Value do
                 game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(-8629.88086, 64.8842468, 1855.03467))
                 game:GetService("ReplicatedStorage").rEvents.machineInteractRemote:InvokeServer("useMachine", workspace.machinesFolder["Jungle Bench"].interactSeat)
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -492,7 +492,7 @@ jungleBarToggle:OnChanged(function(State)
             while jungleBarToggle.Value do
                 game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(-8678.05566, 14.5030098, 2089.25977))
                 game:GetService("ReplicatedStorage").rEvents.machineInteractRemote:InvokeServer("useMachine", workspace.machinesFolder["Jungle Bar Lift"].interactSeat)
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -505,7 +505,7 @@ jungleSquatToggle:OnChanged(function(State)
             while jungleSquatToggle.Value do
                 game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(-8374.25586, 34.5933418, 2932.44995))
                 game:GetService("ReplicatedStorage").rEvents.machineInteractRemote:InvokeServer("useMachine", workspace.machinesFolder["Jungle Squat"].interactSeat)
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -520,7 +520,7 @@ equipWeightToggle:OnChanged(function(State)
             while equipWeightToggle.Value do
                 local tool = game.Players.LocalPlayer.Backpack:FindFirstChild("Weight")
                 if tool then tool.Parent = game.Players.LocalPlayer.Character end
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -533,7 +533,7 @@ equipPushupToggle:OnChanged(function(State)
             while equipPushupToggle.Value do
                 local tool = game.Players.LocalPlayer.Backpack:FindFirstChild("Pushups")
                 if tool then tool.Parent = game.Players.LocalPlayer.Character end
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -546,7 +546,7 @@ equipSitupToggle:OnChanged(function(State)
             while equipSitupToggle.Value do
                 local tool = game.Players.LocalPlayer.Backpack:FindFirstChild("Situps")
                 if tool then tool.Parent = game.Players.LocalPlayer.Character end
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -559,7 +559,7 @@ equipHandstandToggle:OnChanged(function(State)
             while equipHandstandToggle.Value do
                 local tool = game.Players.LocalPlayer.Backpack:FindFirstChild("Handstand")
                 if tool then tool.Parent = game.Players.LocalPlayer.Character end
-                task.wait(0.1)
+                task.wait(0.005)
             end
         end)
     end
@@ -1143,5 +1143,6 @@ Library:Notify{
 -- which has been marked to be one that auto loads!
 
 SaveManager:LoadAutoloadConfig()
+
 
 
