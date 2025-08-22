@@ -565,19 +565,6 @@ equipHandstandToggle:OnChanged(function(State)
     end
 end)
 
--- Auto Rebirth (Normal)
-local autoRebirthToggle = Tabs.Rebirth:CreateToggle("AutoRebirth", {Title = "Auto Rebirth (Normal)", Default = false})
-autoRebirthToggle:OnChanged(function(State)
-	if State then
-		task.spawn(function()
-			while autoRebirthToggle.Value do
-				game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("rebirthRemote"):InvokeServer("rebirthRequest")
-				task.wait(0.1)
-			end
-		end)
-	end
-end)
-
 -- Auto Size 2
 local autoSize2Toggle = Tabs.Rebirth:CreateToggle("AutoSize2", {Title = "Auto Size 2", Default = false})
 autoSize2Toggle:OnChanged(function(State)
@@ -1156,4 +1143,5 @@ Library:Notify{
 -- which has been marked to be one that auto loads!
 
 SaveManager:LoadAutoloadConfig()
+
 
